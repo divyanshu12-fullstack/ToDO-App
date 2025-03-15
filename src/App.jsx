@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import AppName from "./assets/AppName";
 import AddToDoWork from "./assets/AddItem";
 import Item1 from "./assets/ToDoItem1";
