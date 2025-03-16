@@ -1,11 +1,11 @@
-function Item({ work, endDate }) {
+function ImplementItem({ work, endDate }) {
   return (
-    <div class="container all-content">
-      <div class="row">
-        <div class="col-6 justify-content-center">{work}</div>
-        <div class="col-4 justify-content-center">{endDate}</div>
-        <div class="col-2">
-          <button type="button" class="btn btn-danger text-nowrap">
+    <div className="container all-content">
+      <div className="row">
+        <div className="col-6 justify-content-center">{work}</div>
+        <div className="col-4 justify-content-center">{endDate}</div>
+        <div className="col-2">
+          <button type="button" className="btn btn-danger text-nowrap">
             Delete
           </button>
         </div>
@@ -14,4 +14,4 @@ function Item({ work, endDate }) {
   );
 }
 
-export default Item;
+export default ImplementItem;
