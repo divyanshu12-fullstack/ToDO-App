@@ -1,7 +1,6 @@
 import AppName from "./assets/AppName";
 import AddToDoWork from "./assets/AddItem";
-import Item1 from "./assets/ToDoItem1";
-import Item2 from "./assets/ToDoItem2";
+import Item from "./assets/ToDoItem";
 import "./App.css";
 
 function App() {
@@ -9,8 +8,8 @@ function App() {
     <div className="container-fluid">
       <AppName />
       <AddToDoWork />
-      <Item1 />
-      <Item2 />
+      <Item work="Do LeetCode" endDate="16/03/25" />
+      <Item work="Complete React Course" endDate="20/03/25" />
     </div>
   );
 }
