@@ -1,9 +1,14 @@
 import ImplementItem from "./ToDoItem";
-const Items = ({ arrayOfItems }) => {
+const Items = ({ arrayOfItems, onDeleteClick }) => {
   return (
     <>
-      {arrayOfItems.map((item) => (
-        <ImplementItem work={item.name} endDate={item.date} />
+      {arrayOfItems.map((item, index) => (
+        <ImplementItem
+          work={item.name}
+          endDate={item.endDate}
+          key={index}
+          onDeleteClick={onDeleteClick}
+        />
       ))}
     </>
   );

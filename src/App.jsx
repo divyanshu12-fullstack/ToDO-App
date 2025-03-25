@@ -2,28 +2,37 @@ import AppName from "./assets/AppName";
 import AddToDoWork from "./assets/AddItem";
 import Items from "./assets/Items";
 import "./App.css";
+import { useState } from "react";
+import WelcomeMeassage from "./assets/WelcomeMessage";
 
 function App() {
-  const arrayOfItems = [
-    {
-      name: "Do Leetcode",
-      endDate: "16/03/25",
-    },
-    {
-      name: "Complete React Course",
-      endDate: "20/03/25",
-    },
-    {
-      name: "Complete Half Life 2",
-      endDate: "01/05/25",
-    },
-  ];
+  const itemsList = [];
 
+  const [arrayOfItems, setArrayOfItems] = useState(itemsList);
+
+  const handleNewItem = (itemName, itemDueDate) => {
+    const newArrayofItems = [
+      ...arrayOfItems,
+      { name: itemName, endDate: itemDueDate },
+    ];
+    setArrayOfItems(newArrayofItems);
+  };
+
+  const hanndleDeleteItem = (todoItemName) => {
+    const postDeletionArray = arrayOfItems.filter(
+      (item) => item.name !== todoItemName
+    );
+    setArrayOfItems(postDeletionArray);
+  };
   return (
     <div className="container-fluid">
       <AppName />
-      <AddToDoWork />
-      <Items arrayOfItems={arrayOfItems}></Items>
+      <AddToDoWork onClick={handleNewItem} />
+      {arrayOfItems.length === 0 && <WelcomeMeassage />}
+      <Items
+        arrayOfItems={arrayOfItems}
+        onDeleteClick={hanndleDeleteItem}
+      ></Items>
     </div>
   );
 }

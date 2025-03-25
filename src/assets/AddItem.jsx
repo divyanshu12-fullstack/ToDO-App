@@ -1,4 +1,23 @@
-function AddToDoWork() {
+import { useState } from "react";
+
+function AddToDoWork({ onClick }) {
+  const [todoName, setTodoName] = useState("");
+  const [todoDate, setTodoDate] = useState("");
+
+  const handleNameChange = (value) => {
+    setTodoName(value);
+  };
+
+  const handleDateChange = (value) => {
+    setTodoDate(value);
+  };
+
+  const onButtonClick = () => {
+    onClick(todoName, todoDate);
+    setTodoName("");
+    setTodoDate("");
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -10,14 +29,25 @@ function AddToDoWork() {
               placeholder="Schedule Task"
               aria-label="Username"
               aria-describedby="addon-wrapping"
+              value={todoName}
+              onChange={(event) => handleNameChange(event.target.value)}
             />
           </div>
         </div>
         <div className="col-4">
-          <input type="date" className="form-control border-dark"></input>
+          <input
+            type="date"
+            className="form-control border-dark"
+            value={todoDate}
+            onChange={(event) => handleDateChange(event.target.value)}
+          ></input>
         </div>
         <div className="col-2">
-          <button type="button" className="btn btn-success text-nowrap">
+          <button
+            type="button"
+            className="btn btn-success text-nowrap"
+            onClick={onButtonClick}
+          >
             Add Task
           </button>
         </div>
