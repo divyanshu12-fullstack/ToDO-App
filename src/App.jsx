@@ -11,11 +11,10 @@ function App() {
   const [arrayOfItems, setArrayOfItems] = useState(itemsList);
 
   const handleNewItem = (itemName, itemDueDate) => {
-    const newArrayofItems = [
-      ...arrayOfItems,
+    setArrayOfItems((currValue) => [
+      ...currValue,
       { name: itemName, endDate: itemDueDate },
-    ];
-    setArrayOfItems(newArrayofItems);
+    ]);
   };
 
   const hanndleDeleteItem = (todoItemName) => {
